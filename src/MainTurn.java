@@ -13,8 +13,12 @@ public class MainTurn {
         list.push("j");
         System.out.println("Pop: " + list.pop());
         System.out.println("Pop: " + list.pop());
-      //  list.pushCycle("Cycle");
-        list.cycle();
+      list.pushCycle("Cycle");
+        if (list.cycle()) {
+            System.out.println("In turn is cycle");
+        } else {
+            System.out.println("In turn isn't cycle");
+        }
 
     }
 }

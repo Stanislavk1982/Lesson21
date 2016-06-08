@@ -36,12 +36,12 @@ public class PopAndPush {
         temp.next = element;
 
         temp = first;
-        int i=0;
-        while (i!=3) {
+        int i = 0;
+        while (i != 3) {
             temp = temp.next;
             i++;
         }
-        element.next=temp;
+        element.next = temp;
 
     }
 
@@ -54,21 +54,24 @@ public class PopAndPush {
         return massage;
     }
 
-    public void cycle() {
+    public boolean cycle() {
         temp = first;
-        while (temp.repeat == true && temp.next != null) {
+        int counter = 1;
+        System.out.println(temp.massege);
+        while (temp.repeat && temp.next != null) {
+
             temp.repeat = false;
             temp = temp.next;
-            if (temp.repeat == false) {
-                System.out.println("In turn is cycle");
-                System.out.println(temp.massege);
-            }
-            if (temp.next == null) {
-                System.out.println("End of turn");
-            }
+            System.out.println(temp.massege);
+            if (!temp.repeat) {
+                System.out.println(counter + " elements in the turn");
+                return true;
 
-
+            }
+            counter++;
         }
+        System.out.println(counter + " elements in the turn");
+        return false;
     }
 
 }
