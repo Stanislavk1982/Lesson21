@@ -1,7 +1,7 @@
 public class PopAndPush {
 
     private Element first = null;
-    Element temp = new Element();
+    private Element temp = new Element();
 
     public class Element {
         private String massege;
@@ -11,8 +11,6 @@ public class PopAndPush {
 
     public void push(String massege) {
         Element element = new Element();
-
-
         element.massege = massege;
         if (first == null) {
             first = element;
@@ -74,4 +72,22 @@ public class PopAndPush {
         return false;
     }
 
+    public boolean isCycleRabbitAndTurtle() {
+        Element rabbit = first.next.next, turtle = first.next;
+        int counter = 1;
+        System.out.println(first.massege);
+        while (rabbit != turtle && rabbit != null && turtle != null) {
+            System.out.println(rabbit.massege);
+            System.out.println(turtle.massege);
+            rabbit = rabbit.next.next;
+            turtle = turtle.next;
+            if (rabbit == turtle) {
+                System.out.println(counter + " elements in the turn");
+                return true;
+            }
+            counter++;
+        }
+        System.out.println(counter + " elements in the turn");
+        return false;
+    }
 }
