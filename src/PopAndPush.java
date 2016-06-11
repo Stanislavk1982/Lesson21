@@ -79,6 +79,9 @@ public class PopAndPush {
         while (rabbit != turtle && rabbit != null && turtle != null) {
             System.out.println(rabbit.massege);
             System.out.println(turtle.massege);
+            if (rabbit.next == null) {
+                return false;
+            }
             rabbit = rabbit.next.next;
             turtle = turtle.next;
             if (rabbit == turtle) {
